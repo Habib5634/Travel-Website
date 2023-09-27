@@ -69,7 +69,7 @@ const Trending = () => {
     <h1 className="text-6xl font-semibold text-black my-10 fnt text-center">Trending Now </h1>
    <div className="flex flex-wrap justify-center mt-10  w-full px-3 md:px-8">
   {cardData.map((card, index) => (
-    <div key={index} className="flex flex-row  w-full md:w-1/2">
+    <div key={index} className="flex flex-row  w-full md:w-1/2 lg:w-1/3">
      <div className=''>
       <img
         src={card.imgSrc}

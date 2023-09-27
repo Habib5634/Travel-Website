@@ -32,16 +32,17 @@ const OurClient = () => {
   return (
     <>
     <h1 className="text-6xl font-semibold text-black my-10 fnt text-center">What Our Client Say About Us</h1>
-<div className="flex flex-wrap justify-between mt-20 mb-10  mx-10">
+<div className="flex flex-wrap justify-center mt-20 mb-10  p-10">
         {cardData.map((card, index) => (
           <div
             key={index}
-            className="w-full bg-cover bg-center mb-4 relative"
+            className="w-full md:w-5/12 lg:w-1/4 self-center bg-cover bg-center mr-8   relative"
             style={{
               backgroundSize: "cover",
               backgroundPosition: "center",
               height: "600px", // Set the desired height here
               backgroundImage: `url(${card.bgImage})`,
+              marginBottom: "2rem",
             }}
           >
             <div className="absolute inset-0 flex flex-col justify-end items-center  bg-black bg-opacity-50">
