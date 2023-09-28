@@ -1,31 +1,26 @@
 import React, { useState } from 'react'
 import register from '../../Assets/login.png'
-
+import { Link } from 'react-router-dom';
+import { handleLogin} from '../../services/authService'
 
 
 
 const Login = () => {
 
-    const [formData, setFormData] = useState({
-        name: '',
-        password: '',
-       
-        
-      });
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  
+
+   
     
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-          ...formData,
-          [name]: value
-        });
-      };
+     
     
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        // Add code here to handle form submission
-        console.log(formData);
-      };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add code here to handle form submission
+    console.log();
+    handleLogin(e, email, password)
+  };
   return (
     <>
     <div className='flex w-full justify-center relative h-[100vh] p-12 bg-gradient-to-r from-[#4E1E6C] via-[#cd14d0] to-[#E38C25]'>
@@ -40,13 +35,13 @@ const Login = () => {
              
            
            <input
-             type="text"
-             name="name"
-             value={formData.name}
-             onChange={handleChange}
+             type="email"
+             name="email"
+             value={email}
+             onChange={(e) => setEmail(e.target.value)}
              style={{borderWidth: '3px'}}
-             placeholder='Username'
-             className="border-[#4E1E6C] border w-full mb-4 py-2 self-center"
+             placeholder='Enter Your Email Address'
+             className="border-[#4E1E6C] border w-full mb-4 py-2 pl-3 self-center"
              required
            />
           
@@ -55,11 +50,11 @@ const Login = () => {
            <input
              type="password"
              name="password"
-             value={formData.password}
-             onChange={handleChange}
+             value={password}
+             onChange={(e) => setPassword(e.target.value)}
              style={{borderWidth: '3px'}}
              placeholder='Password'
-             className="border-[#4E1E6C] border w-full py-2 self-center"
+             className="border-[#4E1E6C] pl-3 border w-full py-2 self-center"
              required
            />
   
@@ -84,14 +79,16 @@ const Login = () => {
 
 <div className='flex justify-center items-center w-full mt-10'>
 <p className='w-1/2 text-xl fnt'>Don't Have an Account?</p>
+<Link to='/register'>
 <button
   type="submit"
-  onClick={handleSubmit}
+
   className="border border-b-[#4E1E6C]   border-t-[#cd14d0] border-l-[#E38C25] border-r-[#4E1E6C] fnt w-fit  font-semibold text-xl py-2 px-4  text-gradient-to-r from-[#4E1E6C] via-[#cd14d0] to-[#E38C25]" style={{borderWidth: '3px'}}
 >
   
   Create Now...
 </button>
+</Link>
 
 </div>
 
