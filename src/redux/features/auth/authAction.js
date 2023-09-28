@@ -37,9 +37,9 @@ export const userRegister = createAsyncThunk(
     async ({ name, email, password, country }, { rejectWithValue }) => {
         try {
             const { data } = await axios.post('https://better-red-camel.cyclic.cloud/signup/', { name, email, password,country })
-            if (data?.success) {
+            if (data) {
                 toast.success(data.success);
-                window.location.replace('/')
+                window.location.replace('/login')
             }
         } catch (error) {
             if (error.response && error.response.data.message) {
