@@ -5,20 +5,36 @@ import { BsGift, BsNewspaper, BsPerson } from 'react-icons/bs';
 
 import { FiMenu, FiX } from "react-icons/fi";
 import logo from "../../Assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
+  const navigate = useNavigate()
+  // Check if a token exists in local storage
+  const token = localStorage.getItem('token');
   const handleToggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
+
+
+  const handleLogout = () => {
+    localStorage.clear()
+    alert("Logout Successfully")
+    navigate('/login')
+}
   return (
   <>
   <div className="bg-[#4E1E6C]  flex text-white justify-between items-center p-4">
   <p className=" text-lg">+912-234-35454</p>
   <div className="flex">
-    <Link to='/login'><button className="mr-2">Login</button></Link>
-   <Link to='/register'> <button>Sign Up</button></Link>
-  </div>
+      {token ? (
+        <button onClick={handleLogout}>Logout</button>
+      ) : (
+        <>
+          <Link to='/login'><button className="mr-2">Login</button></Link>
+          <Link to='/register'><button>Sign Up</button></Link>
+        </>
+      )}
+    </div>
 </div>
 
     <div className="bg-[#8D51D9] content-center text-indigo-50 h-32 px-5 md:px-4 flex items-center justify-between">
@@ -65,6 +81,12 @@ const Navbar = () => {
            Contact
           </li>
           </Link>
+          <Link to='/dashboard'>
+          <li className="p-2  menu-item cursor-pointer hover:text-white">
+           Admin
+          </li>
+          </Link>
+          
           
         </ul>
 

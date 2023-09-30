@@ -6,6 +6,8 @@ import BlogLayout from "./Components/BlogLayout/BlogLayout";
 import ContactLayout from "./Components/ContactLayout/ContactLayout";
 import Rejister from "./Pages/RegisterLoginForms/Rejister";
 import Login from "./Pages/RegisterLoginForms/Login";
+import Dashboard from "./Admin/Dashboard";
+import Sidebar from "./Admin/Sidebar/Sidebar";
 
 function App() {
   return (
@@ -19,6 +21,9 @@ function App() {
     <Route path='/contact' element={<ContactLayout/>}/>
     <Route path='/register' element={<Rejister/>}/>
     <Route path='/login' element={<Login/>}/>
+    <Route path='/dashboard' element={<Sidebar/>}/>
+
+    
 
       </Routes>
     </>
