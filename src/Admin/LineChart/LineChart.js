@@ -18,15 +18,39 @@ const LineChart = () => {
         labels:["May 12","May 13","May 14","May 15","May 16","May 17","May 18"],
         datasets:[{
             data:[8,7.8,6,8,7,5,6],
-            backgroundColor:'transparent',
-            borderColor:"red",
+            backgroundColor:'white',
+            borderColor:"white",
             pointBorderColor:"transparent",
-            pointBorderWidth:4
+            pointBorderWidth:4,
+            // tension:1
         }]
     }
-    const options={}
+    const options={
+      // plugin:{
+      //   legend:false
+      // },
+      // scales:{
+      //   x:{
+      //     grid:{
+      //       display:false
+      //     }
+      //   },
+      //   y:{
+      //     min:2,
+      //     max:10,
+      //     ticks:{
+      //       stepsize:2,
+      //       callback:(value)=>value+'k'
+      //     },
+      //     grid:{
+      //       borderDash:[10]
+      //     }
+      //   }
+      // }
+    }
   return (
-    <div className='bg-transparent'>
+    <div className='bg-[#290D3B] h-56 w-full p-2'>
+      <h1 className='text-white text-xl text-center font-bold pb-2'>Earning Starts On all Booking</h1>
     <Line data={data} option={options}>LineChart</Line>
 
     </div>

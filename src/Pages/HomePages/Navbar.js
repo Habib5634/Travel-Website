@@ -6,7 +6,10 @@ import { BsGift, BsNewspaper, BsPerson } from 'react-icons/bs';
 import { FiMenu, FiX } from "react-icons/fi";
 import logo from "../../Assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 const Navbar = () => {
+  const user = useSelector(state => state.auth.user);
   const [showSidebar, setShowSidebar] = useState(false);
   const navigate = useNavigate()
   // Check if a token exists in local storage
@@ -18,7 +21,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.clear()
-    alert("Logout Successfully")
+    toast("Logout Successfully")
     navigate('/login')
 }
   return (
@@ -27,7 +30,7 @@ const Navbar = () => {
   <p className=" text-lg">+912-234-35454</p>
   <div className="flex">
       {token ? (
-        <button onClick={handleLogout}>Logout</button>
+        <button onClick={handleLogout}>{user.name}Logout</button>
       ) : (
         <>
           <Link to='/login'><button className="mr-2">Login</button></Link>

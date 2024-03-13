@@ -55,20 +55,20 @@ export const userRegister = createAsyncThunk(
 
 //current user
 
-// export const getCurrentUser = createAsyncThunk(
-//     'aith/getCurrentUser',
-//     async ({ rejectWithValue }) => {
-//         try {
-//             const res = await API.get('/auth/current-user')
-//             if (res?.data) {
-//                 return res?.data
-//             }
-//         } catch (error) {
-//             if (error.response && error.response.data.message) {
-//                 return rejectWithValue(error.response.data.message)
-//             } else {
-//                 return rejectWithValue(error.message)
-//             }
-//         }
-//     }
-// )
+export const getCurrentUser = createAsyncThunk(
+    'aith/getCurrentUser',
+    async ({ rejectWithValue }) => {
+        try {
+            const res = await API.get('/auth/current-user')
+            if (res?.data) {
+                return res?.data
+            }
+        } catch (error) {
+            if (error.response && error.response.data.message) {
+                return rejectWithValue(error.response.data.message)
+            } else {
+                return rejectWithValue(error.message)
+            }
+        }
+    }
+)

@@ -7,25 +7,25 @@ const States = () => {
     {
       data: "2.8B",
       desc: "Total Earning",
-      backgroundColor: "#E64FD7",
+      backgroundColor: "#290D3B",
       icon: <BsCoin />,
     },
     {
       data: "1.5M+",
       desc: "Happy Users",
-      backgroundColor: "#4CAF50",
+      backgroundColor: "#290D3B",
       icon: <HiUsers />,
     },
     {
       data: "10K+",
       desc: "Employees",
-      backgroundColor: "#FF5722",
+      backgroundColor: "#290D3B",
       icon: <FaUsers />,
     },
     {
       data: "12K+",
       desc: "New Booking",
-      backgroundColor: "#9C27B0",
+      backgroundColor: "#290D3B",
       icon: <FaRegCalendarAlt/>,
     },
   ];
@@ -33,15 +33,15 @@ const States = () => {
   return (
     <>
       <section className="py-4">
-        <div className=" max-w-screen-xl mx-auto px-2 md:px-4">
+        <div className=" max-w-screen-xl mx-auto  ">
           <div className="mt-12">
-            <ul className="flex-wrap gap-x-12 gap-y-10 items-center justify-center space-y-8 sm:space-y-0 sm:flex xl:justify-center">
+            <ul className="flex-wrap gap-x-2 gap-y-10 items-center justify-center space-y-8 sm:space-y-0 flex xl:justify-center">
               {stats.map((item, idx) => (
                 <li
                   key={idx}
-                  style={{
-                    backgroundColor: item.backgroundColor,
-                    width: "15rem", // Set fixed width
+                 style={{
+                     backgroundColor: item.backgroundColor,
+                    width: "18rem", // Set fixed width
                     height: "10rem", // Set fixed height
                   }}
                   className="border p-4 flex items-center justify-between"

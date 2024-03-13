@@ -1,19 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {  userLogin, userRegister } from "./authAction";
+import jwtDecode from 'jwt-decode'; // Importing jwt-decode library
+
+// Assuming 'token' contains your JWT
+const token = localStorage.getItem('token');
+
+let user = null;
+
+if (token) {
+  // Decode the token
+  user = jwtDecode(token);
+
+  // Access the user's information from the decoded token
+  // Assuming user contains a 'name' field
+  console.log(user); // This will log the user's name
+}
 
 
-const token = localStorage.getItem('token') ? localStorage.getItem('token') : null
-
-const inittalState = {
+const initialState = {
     loading: false,
-    user: null,
+    user,
     token,
     error: null
 }
 
 const authSlice = createSlice({
     name: 'auth',
-    initialState: inittalState,
+    initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
         //login user
@@ -45,7 +58,15 @@ const authSlice = createSlice({
             state.error = payload
         })
 
-        //get current user
+        
+    }
+});
+
+
+export default authSlice;
+
+
+//get current user
         // builder.addCase(getCurrentUser.pending, (state) => {
         //     state.loading = true;
         //     state.error = null
@@ -59,8 +80,3 @@ const authSlice = createSlice({
         //     state.loading = false;
         //     state.error = payload
         // })
-    }
-});
-
-
-export default authSlice;

@@ -8,13 +8,20 @@ import Rejister from "./Pages/RegisterLoginForms/Rejister";
 import Login from "./Pages/RegisterLoginForms/Login";
 import Dashboard from "./Admin/Dashboard";
 import Sidebar from "./Admin/Sidebar/Sidebar";
+import PublicRoute from "./Components/Routes/PublicRoute";
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (
     <>
-      
+      <ToastContainer />
       <Routes>
-    <Route path='/' element={<HomeLayout/>}/>
+    <Route path='/' element={
+    // <PublicRoute>
+    <HomeLayout/>
+    // </PublicRoute>
+    }/>
     <Route path='/aboutus' element={<AboutLayout/>}/>
     <Route path='/offer' element={<OfferLayout/>}/>
     <Route path='/blog' element={<BlogLayout/>}/>
